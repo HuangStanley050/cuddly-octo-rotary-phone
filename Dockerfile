@@ -3,7 +3,7 @@ WORKDIR '/app'
 COPY ./package.json .
 RUN npm install
 COPY . .
-CD ./client
+WORKDIR '/app/client'
 RUN npm install && npm build
-CD ../
+WORKDIR '/app'
 CMD ["npm","run","start"]
